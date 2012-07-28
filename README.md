@@ -1,4 +1,4 @@
-A complete .vim directory.
+A complete .vim directory. This is mostly for me to keep my vim settings in sync across machines, but feel free to use it.
 
 Using
 -----
