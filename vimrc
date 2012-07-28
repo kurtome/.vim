@@ -3,34 +3,6 @@
 "       http://amix.dk/blog/post/19486#the-ultimate-vim-configuration-vimrc
 "
 "
-" plugins_included:
-"     > minibufexpl.vim - http://www.vim.org/scripts/script.php?script_id=159
-"       makes it easy to get an overview of buffers:
-"           info -> :e ~/.vim_runtime/plugin/minibufexpl.vim
-"
-"     > bufexplorer - http://www.vim.org/scripts/script.php?script_id=42
-"       makes it easy to switch between buffers:
-"           info -> :help bufexplorer
-"
-"     > yankring.vim - http://www.vim.org/scripts/script.php?script_id=1234
-"       emacs's killring, useful when using the clipboard:
-"           info -> :help yankring
-"
-"     > surround.vim - http://www.vim.org/scripts/script.php?script_id=1697
-"       makes it easy to work with surrounding text:
-"           info -> :help surround
-"
-"     > snipmate.vim - http://www.vim.org/scripts/script.php?script_id=2540
-"       snippets for many languages (similar to textmate's):
-"           info -> :help snipmate
-"
-"
-"     > command-t - http://www.vim.org/scripts/script.php?script_id=3025
-"       command-t plug-in provides an extremely fast, intuitive mechanism for opening files:
-"           info -> :help commandt
-"           screencast and web-help -> http://amix.dk/blog/post/19501
-"
-"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " system type definition
 fun! Mysys()
@@ -128,12 +100,9 @@ if has("gui_running")
   set background=dark
   "colorscheme peaksea
   colorscheme solarized
-  set nonu
 else
-  colorscheme zellner
+  colorscheme solarized
   set background=dark
-  
-  set nonu
 endif
 
 set encoding=utf8
@@ -157,12 +126,15 @@ try
     if Mysys() == "windows"
       set undodir=c:\windows\temp
     else
-      set undodir=~/.vim_runtime/undodir
+      set undodir=~/.vim/undodir
     endif
     
     set undofile
 catch
 endtry
+
+" shift U for re-dos
+noremap U <c-r>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -430,8 +402,8 @@ set guitablabel=%t
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " do :help cope if you are unsure what cope is. it's super useful!
 map <leader>cc :botright cope<cr>
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+map <leader>cn :cn<cr>
+map <leader>cp :cp<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -533,14 +505,14 @@ call pathogen#infect()
 
 
 
-
-
 """"""""""""""""""""""""""""""
 " => ctrl-p plugin
 """"""""""""""""""""""""""""""
+noremap <leader>p :CtrlP<cr>
 noremap <leader>pp :CtrlP<cr>
 noremap <leader>pb :CtrlPBuffer<cr>
 noremap <leader>pr :CtrlPMRU<cr>
+noremap <leader>pa :CtrlPMixed<cr>
 
 
 
@@ -564,7 +536,7 @@ set number
 set numberwidth=5
 
 
-" Show tabs
+" Show tabs (if you wind up editing python/coffescript files with mixed whitespace you'll love this)
 set list 
 set listchars=tab:\~\ 
 
