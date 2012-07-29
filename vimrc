@@ -43,8 +43,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set 7 lines to the curors - when moving vertical..
-set so=7
+" set 7 lines to the curors - when moving vertical=
 
 set wildmenu "turn on wild menu
 
@@ -513,6 +512,9 @@ noremap <leader>pp :CtrlP<cr>
 noremap <leader>pb :CtrlPBuffer<cr>
 noremap <leader>pr :CtrlPMRU<cr>
 noremap <leader>pa :CtrlPMixed<cr>
+
+" When ctrl-p opens multiple files, open up to 5 in new tab
+let g:ctrlp_open_multiple_files = '5tj'
 
 
 
