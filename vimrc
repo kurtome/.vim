@@ -507,14 +507,14 @@ call pathogen#infect()
 """"""""""""""""""""""""""""""
 " => ctrl-p plugin
 """"""""""""""""""""""""""""""
-noremap <leader>p :CtrlP<cr>
-noremap <leader>pp :CtrlP<cr>
-noremap <leader>pb :CtrlPBuffer<cr>
-noremap <leader>pr :CtrlPMRU<cr>
-noremap <leader>pa :CtrlPMixed<cr>
+noremap <leader>f :CtrlP<cr>
+noremap <leader>ff :CtrlP<cr>
+noremap <leader>fb :CtrlPBuffer<cr>
+noremap <leader>fr :CtrlPMRU<cr>
+noremap <leader>fa :CtrlPMixed<cr>
 
-" When ctrl-p opens multiple files, open up to 5 in new tab
-let g:ctrlp_open_multiple_files = '5tj'
+" When ctrl-p opens multiple files, open up to 10 in new tabs
+let g:ctrlp_open_multiple_files = '10tj'
 
 
 
