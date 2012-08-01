@@ -15,8 +15,6 @@ endfun
 " sets how many lines of history vim has to remember
 set history=700
 
-set lines=35
-set columns=120
 
 
 " enable filetype plugin
@@ -77,7 +75,6 @@ set t_vb=
 set tm=500
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => colors and fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable "enable syntax hl
@@ -94,14 +91,16 @@ elseif Mysys() == "linux"
 endif
 
 if has("gui_running")
-  set guioptions-=t
-  set t_co=256
-  set background=dark
-  "colorscheme peaksea
-  colorscheme solarized
+    set lines=60
+    set columns=114
+    set guioptions-=t
+    set t_co=256
+    set background=dark
+    "colorscheme peaksea
+    colorscheme solarized
 else
-  colorscheme solarized
-  set background=dark
+    set background=dark
+    colorscheme peaksea
 endif
 
 set encoding=utf8
@@ -516,7 +515,17 @@ noremap <leader>fa :CtrlPMixed<cr>
 " When ctrl-p opens multiple files, open up to 10 in new tabs
 let g:ctrlp_open_multiple_files = '10tj'
 
+" Allow many files to be indexed, (for big projects)
+let g:ctrlp_max_files = 100000
 
+" Ignore dot files and directories
+let g:ctrlp_dotfiles = 0
+
+" Dept to go to
+let g:ctrlp_max_depth = 40
+
+" Search by filename only (too many false postives with full path)
+let g:ctrlp_by_filename = 1
 
 """"""""""""""""""""""""""""""
 " => vim grep
@@ -538,7 +547,7 @@ set number
 set numberwidth=5
 
 
-" Show tabs (if you wind up editing python/coffescript files with mixed whitespace you'll love this)
+" Show whitespace, but only tabs (great for python/coffescript)
 set list 
 set listchars=tab:\~\ 
 
@@ -546,3 +555,8 @@ set listchars=tab:\~\
 inoremap jj <esc>
 inoremap kk <esc>
 inoremap ` <esc>
+
+" Source a secondary vimrc file for setting specific to this machine.
+if filereadable($HOME.'/.vimrc_local')
+	source ~/.vimrc_local
+endif
