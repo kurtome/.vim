@@ -56,7 +56,7 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 set ignorecase "ignore case when searching
-set smartcase
+set smartcase " except when upper case is used in the search term
 
 set hlsearch "highlight search things
 
@@ -285,6 +285,9 @@ map <leader>tm :tabmove
 
 " when pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
+
+" quick way to select all
+nnoremap <leader>a ggVG
 
 
 command! Bclose call Bufclosecloseit()
@@ -527,6 +530,9 @@ let g:ctrlp_max_depth = 40
 " Search by filename only (too many false postives with full path)
 let g:ctrlp_by_filename = 1
 
+" Wait half second after typing stopped before searching
+let g:ctrlp_lazy_update = 500
+
 """"""""""""""""""""""""""""""
 " => vim grep
 """"""""""""""""""""""""""""""
@@ -546,6 +552,8 @@ au bufread,bufnewfile ~/buffer iab <buffer> xh1 ================================
 set number
 set numberwidth=5
 
+set so=4
+
 
 " Show whitespace, but only tabs (great for python/coffescript)
 set list 
@@ -560,3 +568,7 @@ inoremap ` <esc>
 if filereadable($HOME.'/.vimrc_local')
 	source ~/.vimrc_local
 endif
+
+" Reload
+nnoremap <leader>r :e<cr>
+nnoremap <f5> :e<cr>
