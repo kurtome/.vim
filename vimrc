@@ -15,7 +15,8 @@ endfun
 " sets how many lines of history vim has to remember
 set history=700
 
-
+" allow dirty buffers to exist while hidden
+set hidden
 
 " enable filetype plugin
 filetype plugin on
@@ -91,7 +92,7 @@ elseif Mysys() == "linux"
 endif
 
 if has("gui_running")
-    set lines=60
+    set lines=55
     set columns=114
     set guioptions-=t
     set t_co=256
@@ -170,7 +171,7 @@ function! Cmdline(str)
     unmenu foo
 endfunction 
 
-" from an idea by michael naumann
+" from an idea by michael naumann.
 function! Visualsearch(direction) range
     let l:saved_reg = @"
     execute "normal! vgvy"
@@ -254,25 +255,22 @@ map <space> /
 map <c-space> ?
 map <silent> <leader><cr> :noh<cr>
 
+" Move within wrapped lines
 nnoremap j gj
 nnoremap k gk
 
-" smart way to move btw. windows
-map <c-m-j> <c-w>j
-map <c-m-k> <c-w>k
-map <c-m-h> <c-w>h
-map <c-m-l> <c-w>l
-
 map <C-left> :tabprevious<cr>
-map <C-h> :tabprevious<cr>
+map <M-left> :tabprevious<cr>
+map <c-m-h> :tabprevious<cr>
 
 map <C-right> :tabnext<cr>
-map <C-l> :tabnext<cr>
+map <M-right> :tabnext<cr>
+map <c-m-l> :tabnext<cr>
 
 
 
 " close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>bq :Bclose<cr>
 
 " close all the buffers
 map <leader>ba :1,300 bd!<cr>
@@ -415,19 +413,19 @@ map <leader>o :bufexplorer<cr>
 """"""""""""""""""""""""""""""
 " => minibuffer plugin
 """"""""""""""""""""""""""""""
-let g:minibufexplmodseltarget = 1
-let g:minibufexplorermorethanone = 2
-let g:minibufexplmodseltarget = 0
-let g:minibufexplusesingleclick = 1
-let g:minibufexplmapwindownavvim = 1
-let g:minibufexplvsplit = 25
-let g:minibufexplsplitbelow=1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplorerMoreThanOne = 2
+let g:miniBufExplModSelTarget = 0
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplvsplit = 25
+let g:miniBufExplsplitbelow=1
 
 let g:bufexplorersortby = "name"
 
-autocmd bufread,bufnew :call uminibufexplorer
+autocmd bufread,bufnew :call UMiniBufExplorer
 
-map <leader>u :tminibufexplorer<cr>
+map <leader>u :TMiniBufExplorer<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -500,7 +498,22 @@ endfunction
 """"""""""""""""""""""""""""""
 " Include all bundles in ~/.vim/bundle
 call pathogen#infect()
+Helptags
 
+
+
+"""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""
+" Start up NERDTree automatically
+"autocmd vimenter * NERDTree
+" If NERDTree is the only buffer open, let vim quit
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:NERDTreeWinSize=20
+
+nnoremap <Leader>n :NERDTreeTabsToggle<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -526,6 +539,9 @@ let g:ctrlp_max_depth = 40
 
 " Search by filename only (too many false postives with full path)
 let g:ctrlp_by_filename = 1
+
+
+
 
 """"""""""""""""""""""""""""""
 " => vim grep
