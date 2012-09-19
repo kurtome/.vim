@@ -267,8 +267,6 @@ map <C-right> :tabnext<cr>
 map <M-right> :tabnext<cr>
 map <c-m-l> :tabnext<cr>
 
-
-
 " close the current buffer
 map <leader>bq :Bclose<cr>
 
@@ -312,6 +310,14 @@ try
 catch
 endtry
 
+""""""""""""""""""""""""""""""
+" => windows
+""""""""""""""""""""""""""""""
+" resize current buffer by +/- 5 
+nnoremap <C-left> :vertical resize -5<cr>
+nnoremap <C-down> :resize +5<cr>
+nnoremap <C-up> :resize -5<cr>
+nnoremap <C-right> :vertical resize +5<cr>
 
 """"""""""""""""""""""""""""""
 " => statusline
