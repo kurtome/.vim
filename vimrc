@@ -519,7 +519,8 @@ Helptags
 " If NERDTree is the only buffer open, let vim quit
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup=0
+let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeWinSize=20
 
 nnoremap <Leader>n :NERDTreeTabsToggle<CR>
