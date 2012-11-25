@@ -10,3 +10,9 @@ To use just have Vim version  7 or higher and replace you ~/.vim directory with 
 After that create a symbolic link to the vimrc file inside.
 
 	ln -s ~/.vim/vimrc ~/.vimrc
+
+Finally make sure the plugins get pulled down too:
+
+	cd ~/.vim
+	git submodule init
+	git submodule update
