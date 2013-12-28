@@ -259,6 +259,7 @@ map <silent> <leader><cr> :noh<cr>
 nnoremap j gj
 nnoremap k gk
 
+" moving between buffers
 map <C-left> :bp<cr>
 map <M-left> :bp<cr>
 map <c-m-h> :bp<cr>
@@ -592,3 +593,6 @@ endif
 " Reload
 nnoremap <leader>r :e<cr>
 nnoremap <f5> :e<cr>
+
+
+nnoremap <leader>p "0p
