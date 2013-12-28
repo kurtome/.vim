@@ -259,13 +259,13 @@ map <silent> <leader><cr> :noh<cr>
 nnoremap j gj
 nnoremap k gk
 
-map <C-left> :tabprevious<cr>
-map <M-left> :tabprevious<cr>
-map <c-m-h> :tabprevious<cr>
+map <C-left> :bp<cr>
+map <M-left> :bp<cr>
+map <c-m-h> :bp<cr>
 
-map <C-right> :tabnext<cr>
-map <M-right> :tabnext<cr>
-map <c-m-l> :tabnext<cr>
+map <C-right> :bn<cr>
+map <M-right> :bn<cr>
+map <c-m-l> :bn<cr>
 
 " close the current buffer
 map <leader>bq :Bclose<cr>
