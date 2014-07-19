@@ -561,6 +561,13 @@ let grep_skip_dirs = 'rcs cvs sccs .svn generated'
 set grepprg=/bin/grep\ -nh
 
 
+"""""""""""""""""""""""""
+" => vim notes
+"""""""""""""""""""""""""
+
+let g:notes_directories = ['~/Documents/vim-notes']
+
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => misc
