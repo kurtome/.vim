@@ -260,7 +260,6 @@ nnoremap j gj
 nnoremap k gk
 
 " moving between buffers
-map <C-left> :bp<cr>
 map <M-left> :bp<cr>
 map <c-m-h> :bp<cr>
 
