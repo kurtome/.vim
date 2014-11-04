@@ -589,7 +589,6 @@ set listchars=tab:\~\
 " All kinds of good ways to return to normal mode
 inoremap jj <esc>
 inoremap kk <esc>
-inoremap ` <esc>
 
 " Source a secondary vimrc file for setting specific to this machine.
 if filereadable($HOME.'/.vimrc_local')
