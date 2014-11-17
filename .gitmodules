@@ -28,3 +28,6 @@
 [submodule "bundle/thrift.vim"]
 	path = bundle/thrift.vim
 	url = https://github.com/solarnz/thrift.vim.git
+[submodule "bundle/vim-easy-align"]
+	path = bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
