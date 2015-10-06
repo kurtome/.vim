@@ -1,2 +1,5 @@
+bundle/*
+
+# ignore files generated for undo history
 undodir/*
 .netrwhist

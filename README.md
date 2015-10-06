@@ -7,12 +7,15 @@ To use just have Vim version  7 or higher and replace you ~/.vim directory with 
 	git clone https://github.com/KurToMe/.vim.git ~/.vim
 
 
-After that create a symbolic link to the vimrc file inside.
+Replace your entire .vimrc contents with this line (or add customizations AFTER
+this line)
 
-	ln -s ~/.vim/vimrc ~/.vimrc
+	source ~/.vim/vimrc
 
-Finally make sure the plugins get pulled down too:
+Install Vundle into `.vim/bundle`
 
-	cd ~/.vim
-	git submodule init
-	git submodule update
+	$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+Tell Vundle to run and install all configured plugins
+
+	vim +PluginInstall +qall

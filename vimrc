@@ -4,6 +4,45 @@
 "
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"======================"
+" Vundle configuration "
+"======================"
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
+  call vundle#begin()
+  " Required
+  Plugin 'gmarik/vundle'
+  " Install plugins that come from github.  Once Vundle is installed, these can be
+  " installed with :PluginInstall
+  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'bling/vim-airline'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'kien/ctrlp.vim'
+  Plugin 'xolox/vim-misc'
+  Plugin 'xolox/vim-notes'
+  Plugin 'Valloric/MatchTagAlways'
+  Plugin 'vim-scripts/netrw.vim'
+  Plugin 'tpope/vim-sensible'
+  Plugin 'SirVer/ultisnips'
+  " Provide many default snippets for a variety of snippets.
+  " Uncomment and :PluginInstall to enable
+  " Plugin 'honza/vim-snippets'
+
+  call vundle#end()
+else
+  echomsg 'Vundle is not installed. You can install Vundle from'
+      \ 'https://github.com/VundleVim/Vundle.vim'
+endif
+
+filetype plugin indent on
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " system type definition
 fun! Mysys()
     return "linux"
@@ -91,17 +130,21 @@ elseif Mysys() == "linux"
   set shell=/bin/bash
 endif
 
+syntax enable
+set background=dark
+colorscheme solarized
+
+set t_Co=256
+" tell Solarized to use the <t_co> degraded color mode
+let g:solarized_termcolors=256
+
+
 if has("gui_running")
     set lines=55
     set columns=114
     set guioptions-=t
-    set t_co=256
-    set background=dark
-    "colorscheme peaksea
-    colorscheme solarized
 else
-    set background=dark
-    colorscheme peaksea
+    " do terminal specific stuff
 endif
 
 set encoding=utf8
@@ -127,7 +170,7 @@ try
     else
       set undodir=~/.vim/undodir
     endif
-    
+
     set undofile
 catch
 endtry
@@ -206,9 +249,9 @@ cno $c e <c-\>eCurrentfiledir("e")<cr>
 cno $q <c-\>eDeletetillslash()<cr>
 
 " bash like keys for the command line
-cnoremap <c-a>		<home>
-cnoremap <c-e>		<end>
-cnoremap <c-k>		<c-u>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-k> <c-u>
 
 cnoremap <c-p> <up>
 cnoremap <c-n> <down>
@@ -222,7 +265,7 @@ cmap ½ $
 
 func! Cwd()
   let Cwd = getcwd()
-  return "e " . Cwd 
+  return "e " . Cwd
 endfunc
 
 func! Deletetillslash()
@@ -502,12 +545,39 @@ endfunction
 
 
 
-""""""""""""""""""""""""""""""
-" => pathogen (for plugin management)
-""""""""""""""""""""""""""""""
-" Include all bundles in ~/.vim/bundle
-call pathogen#infect()
-Helptags
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => misc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"quickly open a buffer for scripbble
+map <leader>q :e ~/buffer<cr>
+au bufread,bufnewfile ~/buffer iab <buffer> xh1 ===========================================
+
+set number
+set numberwidth=5
+
+set so=4
+
+
+" use » to mark Tabs and ° to mark trailing whitespace. This is a
+" non-obtrusive way to mark these special characters.
+set list listchars=tab:»\ ,trail:°
+
+" All kinds of good ways to return to normal mode
+inoremap jj <esc>
+inoremap kk <esc>
+
+" Source a secondary vimrc file for setting specific to this machine.
+if filereadable($HOME.'/.vimrc_local')
+  source ~/.vimrc_local
+endif
+
+" Reload
+nnoremap <leader>r :e<cr>
+nnoremap <f5> :e<cr>
+
+nnoremap <leader>p "0p
+
 
 
 
@@ -559,6 +629,14 @@ let g:ctrlp_lazy_update = 500
 let grep_skip_dirs = 'rcs cvs sccs .svn generated'
 set grepprg=/bin/grep\ -nh
 
+"""""""""""""""""""""""""""""
+" => vim airline
+"""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_theme = 'solarized'
+
 
 """""""""""""""""""""""""
 " => vim notes
@@ -567,37 +645,3 @@ set grepprg=/bin/grep\ -nh
 let g:notes_directories = ['~/Documents/vim-notes']
 
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
-au bufread,bufnewfile ~/buffer iab <buffer> xh1 ===========================================
-
-set number
-set numberwidth=5
-
-set so=4
-
-
-" Show whitespace, but only tabs (great for python/coffescript)
-set list 
-set listchars=tab:\~\ 
-
-" All kinds of good ways to return to normal mode
-inoremap jj <esc>
-inoremap kk <esc>
-
-" Source a secondary vimrc file for setting specific to this machine.
-if filereadable($HOME.'/.vimrc_local')
-	source ~/.vimrc_local
-endif
-
-" Reload
-nnoremap <leader>r :e<cr>
-nnoremap <f5> :e<cr>
-
-
-nnoremap <leader>p "0p
