@@ -131,8 +131,8 @@ elseif Mysys() == "linux"
 endif
 
 syntax enable
-set background=dark
 colorscheme solarized
+set background=dark
 
 set t_Co=256
 " tell Solarized to use the <t_co> degraded color mode
