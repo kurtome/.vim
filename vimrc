@@ -298,6 +298,12 @@ map <space> /
 map <c-space> ?
 map <silent> <leader><cr> :noh<cr>
 
+" Move between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Move within wrapped lines
 nnoremap j gj
 nnoremap k gk
@@ -593,7 +599,7 @@ let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:NERDTreeWinSize=20
 
-nnoremap <Leader>n :NERDTreeTabsToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 
 """"""""""""""""""""""""""""""
