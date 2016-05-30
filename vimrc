@@ -20,7 +20,8 @@ if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
   " Install plugins that come from github.  Once Vundle is installed, these can be
   " installed with :PluginInstall
   Plugin 'scrooloose/nerdcommenter'
-  Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'scrooloose/nerdtree'
   Plugin 'kien/ctrlp.vim'
   Plugin 'xolox/vim-misc'
@@ -650,4 +651,6 @@ let g:airline_theme = 'solarized'
 
 let g:notes_directories = ['~/Documents/vim-notes']
 
+" Setting background last appears to be the only way to make it stick
+set background=dark
 
