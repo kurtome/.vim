@@ -29,10 +29,6 @@ if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
   Plugin 'Valloric/MatchTagAlways'
   Plugin 'vim-scripts/netrw.vim'
   Plugin 'tpope/vim-sensible'
-  Plugin 'SirVer/ultisnips'
-  " Provide many default snippets for a variety of snippets.
-  " Uncomment and :PluginInstall to enable
-  " Plugin 'honza/vim-snippets'
 
   call vundle#end()
 else
