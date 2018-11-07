@@ -26,13 +26,9 @@ if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
   Plugin 'kien/ctrlp.vim'
   Plugin 'xolox/vim-misc'
   Plugin 'xolox/vim-notes'
-  Plugin 'Valloric/MatchTagAlways'
   Plugin 'vim-scripts/netrw.vim'
   Plugin 'tpope/vim-sensible'
-  Plugin 'SirVer/ultisnips'
-  " Provide many default snippets for a variety of snippets.
-  " Uncomment and :PluginInstall to enable
-  " Plugin 'honza/vim-snippets'
+  Plugin 'iCyMind/NeoSolarized'
 
   call vundle#end()
 else
@@ -132,7 +128,7 @@ elseif Mysys() == "linux"
 endif
 
 syntax enable
-colorscheme solarized
+colorscheme NeoSolarized
 set background=dark
 
 set t_Co=256
