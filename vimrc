@@ -179,7 +179,7 @@ noremap U <c-r>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set noexpandtab
+set expandtab
 set shiftwidth=2
 set tabstop=2
 set smarttab
