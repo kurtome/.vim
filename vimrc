@@ -127,14 +127,13 @@ elseif Mysys() == "linux"
   set shell=/bin/bash
 endif
 
-syntax enable
-colorscheme NeoSolarized
-set background=dark
-
 set t_Co=256
 " tell Solarized to use the <t_co> degraded color mode
 let g:solarized_termcolors=256
 
+syntax enable
+set background=dark
+colorscheme NeoSolarized
 
 if has("gui_running")
     set lines=55
