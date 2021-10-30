@@ -128,11 +128,9 @@ elseif Mysys() == "linux"
 endif
 
 set t_Co=256
-" tell Solarized to use the <t_co> degraded color mode
-let g:solarized_termcolors=256
 
+set termguicolors
 syntax enable
-set background=dark
 colorscheme NeoSolarized
 
 if has("gui_running")
@@ -645,7 +643,4 @@ let g:airline_theme = 'solarized'
 """""""""""""""""""""""""
 
 let g:notes_directories = ['~/Documents/vim-notes']
-
-" Setting background last appears to be the only way to make it stick
-set background=dark
 
